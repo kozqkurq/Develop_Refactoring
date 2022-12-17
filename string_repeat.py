@@ -1,7 +1,10 @@
 import re
+import numpy
 
-def string_repeat(text, n1, n2):
+def string_repeat_rename(text):
     result = ""
+    n1 = numpy.random.randint(0, 10)
+    n2 = numpy.random.randint(0, 10)
     if len(text) >= 5 and len(text) <= 10:
         if re.fullmatch(r"[a-zA-Z]+", text):
             result = (text + " ") * n1
@@ -12,7 +15,9 @@ def string_repeat(text, n1, n2):
         raise ValueError("error! : 正しい長さの文字列を入力してください")
 
     return result
+
+    
 try:
-    print(string_repeat("hello", 5, 2))
+    print(string_repeat_rename("hello"))
 except ValueError as e:
     print(e)
